@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colori esistenti */
+  --color-scal-green: #1877F2;
+  --color-scal-lime: #D1E7FF;
+
+  /* NUOVI COLORI (Indispensabili per il footer) */
+  --color-scal-navy: #0A1D37;
+  --color-scal-azure: #00AEEF;
+}
+
+@layer components {
+  .title-huge {
+    @apply text-5xl md:text-8xl font-black tracking-tighter leading-[0.95] uppercase;
+  }
+  
+  .btn-primary {
+    @apply bg-scal-green text-white px-10 py-5 rounded-2xl font-bold 
+           hover:bg-black transition-all duration-500 
+           flex items-center justify-center gap-3 uppercase tracking-widest text-[10px];
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-reveal {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
