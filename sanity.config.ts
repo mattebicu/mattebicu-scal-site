@@ -7,7 +7,7 @@ import { structure } from './sanity/structure'
 export default defineConfig({
   name: 'default',
   title: 'scal-plastica',
-  projectId: 'v4he4yjk',
+  projectId: 'xvua41ou',
   dataset: 'production',
 
   // QUESTA è la riga che mancava per farlo funzionare su /studio
