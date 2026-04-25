@@ -47,8 +47,8 @@ export default async function Home() {
             {/* TAG: CONSULENZA TECNICA */}
             {hero?.tag && (
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-[2px] bg-[#8B1A1A]"></div>
-                <span className="text-[#8B1A1A] text-xs font-bold tracking-[0.2em] uppercase">
+                <div className="w-12 h-[2px] bg-[#39A935]"></div>
+                <span className="text-[#39A935] text-xs font-bold tracking-[0.2em] uppercase">
                   {hero.tag}
                 </span>
               </div>
@@ -57,7 +57,7 @@ export default async function Home() {
             {/* TITOLI PRINCIPALI */}
             <h1 className="text-4xl md:text-6xl lg:text-[72px] font-black uppercase leading-[0.9] mb-6">
               {hero?.titleLine1} <br />
-              <span className="text-[#8B1A1A] italic">{hero?.titleLine3}</span>
+              <span className="text-[#39A935] italic">{hero?.titleLine3}</span>
             </h1>
             
             {/* DESCRIZIONE (Rispetta gli a capo di Sanity) */}

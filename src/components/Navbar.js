@@ -32,8 +32,8 @@ export default function Navbar({ content: initialContent }) {
   const linkedinUrl = data?.socials?.linkedin || "#";
   const logoUrl = data?.logoUrl;
 
-  const brandRed = "text-[#8B1A1A]";
-  const brandRedHover = "hover:text-[#8B1A1A]";
+  const brandRed = "text-[#39A935]";
+  const brandRedHover = "hover:text-[#39A935]";
   const brandDark = "text-[#1A1A1A]";
 
   return (

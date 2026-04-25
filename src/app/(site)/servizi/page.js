@@ -41,14 +41,14 @@ export default async function ServiziPage() {
       <div className="max-w-7xl mx-auto">
         <header className="mb-32">
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-[#8B1A1A]"></div>
-            <h2 className="text-[#8B1A1A] font-bold uppercase tracking-[0.4em] text-xs italic">
+            <div className="h-px w-12 bg-[#39A935]"></div>
+            <h2 className="text-[#39A935] font-bold uppercase tracking-[0.4em] text-xs italic">
               {pageHeader.tag}
             </h2>
           </div>
           <h1 className="text-6xl md:text-[110px] font-black tracking-tighter uppercase leading-[0.8] mb-4">
             {pageHeader.line1} <br />
-            <span className="text-[#8B1A1A] italic">{pageHeader.highlight}</span>
+            <span className="text-[#39A935] italic">{pageHeader.highlight}</span>
           </h1>
         </header>
 
@@ -62,11 +62,11 @@ export default async function ServiziPage() {
                 className="group border-b border-slate-100 py-20 flex flex-col md:flex-row gap-12 items-center transition-all relative overflow-hidden"
               >
                 <div className="flex-1 z-10">
-                  <span className="text-2xl text-[#8B1A1A] font-black opacity-40 italic mb-8 block">
+                  <span className="text-2xl text-[#39A935] font-black opacity-40 italic mb-8 block">
                     {(i + 1).toString().padStart(2, '0')} //
                   </span>
                   
-                  <h3 className="text-4xl md:text-7xl font-black uppercase italic tracking-tighter mb-6 leading-[0.9] group-hover:text-[#8B1A1A] transition-colors duration-500">
+                  <h3 className="text-4xl md:text-7xl font-black uppercase italic tracking-tighter mb-6 leading-[0.9] group-hover:text-[#39A935] transition-colors duration-500">
                     {service.name}
                   </h3>
                   
@@ -74,8 +74,8 @@ export default async function ServiziPage() {
                     {service.description}
                   </p>
                   
-                  <a href="/contatti" className="inline-flex items-center gap-3 font-black uppercase tracking-[0.2em] text-xs border-b-2 border-[#8B1A1A] pb-2 hover:gap-6 transition-all duration-300">
-                    Approfondisci <ArrowRight size={18} className="text-[#8B1A1A]" />
+                  <a href="/contatti" className="inline-flex items-center gap-3 font-black uppercase tracking-[0.2em] text-xs border-b-2 border-[#39A935] pb-2 hover:gap-6 transition-all duration-300">
+                    Approfondisci <ArrowRight size={18} className="text-[#39A935]" />
                   </a>
                 </div>
 

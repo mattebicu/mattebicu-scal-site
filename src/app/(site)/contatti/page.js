@@ -48,58 +48,58 @@ export default async function ContattiPage() {
           
           {/* TAG FISSO: CONSULENZA TECNICA */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-[2px] bg-[#8B1A1A]"></div>
-            <span className="text-[#8B1A1A] text-xs font-bold tracking-[0.2em] uppercase">
+            <div className="w-12 h-[2px] bg-[#39A935]"></div>
+            <span className="text-[#39A935] text-xs font-bold tracking-[0.2em] uppercase">
               Consulenza Tecnica
             </span>
           </div>
 
           <h1 className="text-6xl md:text-[80px] font-[900] tracking-tighter uppercase leading-[0.85] mb-20">
             {mainText} <br />
-            <span className="text-[#8B1A1A] italic">{lastWord}</span>
+            <span className="text-[#39A935] italic">{lastWord}</span>
           </h1>
           
           <div className="space-y-10">
             <a href={`mailto:${info?.email}`} className="flex items-center gap-6 group">
-              <div className="w-14 h-14 bg-white border border-[#8B1A1A]/20 rounded-2xl flex items-center justify-center text-[#8B1A1A] shadow-sm group-hover:bg-[#8B1A1A] group-hover:text-white transition-all">
+              <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
                 <Mail size={24} />
               </div>
               <div>
                 <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">Email Advisory</p>
-                <p className="font-bold text-xl group-hover:text-[#8B1A1A] transition-colors">{info?.email || "info@scal-plastica.com"}</p>
+                <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.email || "info@scal-plastica.com"}</p>
               </div>
             </a>
 
             {/* PRIMO TELEFONO */}
             <a href={`tel:${info?.phone?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
-              <div className="w-14 h-14 bg-white border border-[#8B1A1A]/20 rounded-2xl flex items-center justify-center text-[#8B1A1A] shadow-sm group-hover:bg-[#8B1A1A] group-hover:text-white transition-all">
+              <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
                 <Phone size={24} />
               </div>
               <div>
                 <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
                   Scal Consulenze Plastiche
                 </p>
-                <p className="font-bold text-xl group-hover:text-[#8B1A1A] transition-colors">{info?.phone || "+39 375 6107995"}</p>
+                <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone || "+39 375 6107995"}</p>
               </div>
             </a>
 
             {/* SECONDO TELEFONO (Caricato da Sanity) */}
             {info?.phone2 && (
               <a href={`tel:${info?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-white border border-[#8B1A1A]/20 rounded-2xl flex items-center justify-center text-[#8B1A1A] shadow-sm group-hover:bg-[#8B1A1A] group-hover:text-white transition-all">
+                <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
                   <Phone size={24} />
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
                     Scal Consulenze Plastiche
                   </p>
-                  <p className="font-bold text-xl group-hover:text-[#8B1A1A] transition-colors">{info?.phone2}</p>
+                  <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone2}</p>
                 </div>
               </a>
             )}
 
             <div className="flex items-center gap-6">
-              <div className="w-14 h-14 bg-white border border-[#8B1A1A]/20 rounded-2xl flex items-center justify-center text-[#8B1A1A] shadow-sm">
+              <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm">
                 <MapPin size={24} />
               </div>
               <div>
@@ -113,13 +113,13 @@ export default async function ContattiPage() {
         <div className="lg:mt-32 bg-slate-50/50 p-8 md:p-14 rounded-[60px] border border-slate-100 shadow-sm">
           <form className="space-y-5">
             <div className="grid md:grid-cols-2 gap-5">
-              <input type="text" placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
-              <input type="text" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
+              <input type="text" placeholder="NOME" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
+              <input type="text" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
             </div>
-            <input type="email" placeholder="EMAIL" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
-            <textarea rows="5" placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
+            <input type="email" placeholder="EMAIL" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
+            <textarea rows="5" placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
             
-            <button type="button" className="w-full bg-[#1A1A1A] text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group">
+            <button type="button" className="w-full bg-[#1A1A1A] text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#39A935] transition-all shadow-lg group">
               CONTATTACI 
               <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </button>

@@ -48,7 +48,7 @@ export default function Footer() {
               {logoUrl ? (
                 <img src={logoUrl} alt={siteName} className="h-16 w-auto object-contain block" />
               ) : (
-                <span className="font-black text-2xl tracking-tighter uppercase text-[#8B1A1A]">{siteName}</span>
+                <span className="font-black text-2xl tracking-tighter uppercase text-[#39A935]">{siteName}</span>
               )}
             </a>
             <p className="text-slate-500 text-sm italic font-medium">
@@ -58,19 +58,19 @@ export default function Footer() {
 
           {/* MENU (ALLINEATO CON L'HEADER) */}
           <div>
-            <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#8B1A1A] mb-8">Menu</h4>
+            <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#39A935] mb-8">Menu</h4>
             <ul className="flex flex-col gap-4 text-sm font-bold uppercase text-slate-600">
-              <li><a href="/servizi" className="hover:text-[#8B1A1A] transition-colors">Servizi</a></li>
-              <li><a href="/chi-siamo" className="hover:text-[#8B1A1A] transition-colors">Chi Siamo</a></li>
-              <li><a href="/contatti" className="hover:text-[#8B1A1A] transition-colors">Contatti</a></li>
+              <li><a href="/servizi" className="hover:text-[#39A935] transition-colors">Servizi</a></li>
+              <li><a href="/chi-siamo" className="hover:text-[#39A935] transition-colors">Chi Siamo</a></li>
+              <li><a href="/contatti" className="hover:text-[#39A935] transition-colors">Contatti</a></li>
             </ul>
           </div>
 
           {/* NETWORK */}
           <div>
-            <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#8B1A1A] mb-8">Network</h4>
+            <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#39A935] mb-8">Network</h4>
             <div className="flex flex-col gap-6">
-              <a href={home?.site?.externalLink?.url || "#"} target="_blank" className="flex items-center gap-2 text-sm font-bold hover:text-[#8B1A1A] transition-colors">
+              <a href={home?.site?.externalLink?.url || "#"} target="_blank" className="flex items-center gap-2 text-sm font-bold hover:text-[#39A935] transition-colors">
                 {home?.site?.externalLink?.title || "Scal GreenPolymers"} <ArrowUpRight size={16} />
               </a>
               <a href={settings?.socials?.linkedin || home?.site?.socials?.linkedin || "#"} target="_blank" className="p-3 w-fit rounded-full border border-slate-200 text-slate-400 hover:text-[#0077b5] hover:border-[#0077b5] transition-all">
@@ -81,12 +81,12 @@ export default function Footer() {
 
           {/* CONTATTI */}
           <div>
-            <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#8B1A1A] mb-8">Contatti</h4>
+            <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#39A935] mb-8">Contatti</h4>
             <ul className="flex flex-col gap-6 text-sm text-slate-600 font-bold uppercase">
               
               <li>
-                <a href={`mailto:${settings?.email}`} className="flex items-center gap-3 hover:text-[#8B1A1A] transition-colors">
-                  <Mail size={16} className="text-[#8B1A1A]" /> 
+                <a href={`mailto:${settings?.email}`} className="flex items-center gap-3 hover:text-[#39A935] transition-colors">
+                  <Mail size={16} className="text-[#39A935]" /> 
                   {settings?.email || "info@scal-plastica.com"}
                 </a>
               </li>
@@ -94,8 +94,8 @@ export default function Footer() {
               {/* PRIMO NUMERO */}
               <li>
                 <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL CONSULENZE PLASTICHE</div>
-                <a href={`tel:${settings?.phone?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#8B1A1A] transition-colors">
-                  <Phone size={16} className="text-[#8B1A1A]" /> 
+                <a href={`tel:${settings?.phone?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#39A935] transition-colors">
+                  <Phone size={16} className="text-[#39A935]" /> 
                   {settings?.phone || "+39 000 0000000"}
                 </a>
               </li>
@@ -104,15 +104,15 @@ export default function Footer() {
               {settings?.phone2 && (
                 <li>
                   <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL CONSULENZE PLASTICHE</div>
-                  <a href={`tel:${settings?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#8B1A1A] transition-colors">
-                    <Phone size={16} className="text-[#8B1A1A]" /> 
+                  <a href={`tel:${settings?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#39A935] transition-colors">
+                    <Phone size={16} className="text-[#39A935]" /> 
                     {settings?.phone2}
                   </a>
                 </li>
               )}
 
               <li className="flex items-start gap-3 italic mt-2">
-                <MapPin size={16} className="text-[#8B1A1A] shrink-0 mt-1" /> 
+                <MapPin size={16} className="text-[#39A935] shrink-0 mt-1" /> 
                 <span>{settings?.address || "Italia"}</span>
               </li>
             </ul>
@@ -126,8 +126,8 @@ export default function Footer() {
               © 2026 {siteName} {settings?.vatNumber ? `- P.IVA ${settings.vatNumber}` : ''}
             </p>
             <div className="flex gap-6 text-[10px] uppercase font-bold tracking-widest text-slate-400">
-              <a href="/privacy" className="hover:text-[#8B1A1A]">Privacy Policy</a>
-              <a href="/cookie" className="hover:text-[#8B1A1A]">Cookie Policy</a>
+              <a href="/privacy" className="hover:text-[#39A935]">Privacy Policy</a>
+              <a href="/cookie" className="hover:text-[#39A935]">Cookie Policy</a>
             </div>
           </div>
           {settings?.legalInfo && (

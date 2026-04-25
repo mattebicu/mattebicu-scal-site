@@ -52,15 +52,15 @@ export default async function ChiSiamoPage() {
           
           {/* TAG FISSO: CONSULENZA TECNICA */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-[2px] bg-[#8B1A1A]"></div>
-            <span className="text-[#8B1A1A] text-xs font-bold tracking-[0.2em] uppercase">
+            <div className="w-12 h-[2px] bg-[#39A935]"></div>
+            <span className="text-[#39A935] text-xs font-bold tracking-[0.2em] uppercase">
               Consulenza Tecnica
             </span>
           </div>
 
           <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85]">
             {data.header.titlePart1} <br /> 
-            <span className="text-[#8B1A1A] italic">{data.header.titleItalic}</span> <br />
+            <span className="text-[#39A935] italic">{data.header.titleItalic}</span> <br />
             {data.header.titlePart2}
           </h1>
         </header>
@@ -81,7 +81,7 @@ export default async function ChiSiamoPage() {
           <div className="px-4 flex flex-col items-start">
             {/* Mostra il paragrafo solo se c'è testo su Sanity */}
             {data.intro.paragraph1 && (
-              <p className="mb-6 border-l-4 border-[#8B1A1A] pl-6 italic text-[#1A1A1A]">
+              <p className="mb-6 border-l-4 border-[#39A935] pl-6 italic text-[#1A1A1A]">
                 {data.intro.paragraph1}
               </p>
             )}
@@ -97,7 +97,7 @@ export default async function ChiSiamoPage() {
                 href={sanityData.brochureUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="ml-7 bg-[#1A1A1A] text-white font-[900] uppercase tracking-[0.25em] text-xs px-8 py-5 rounded-xl flex items-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group"
+                className="ml-7 bg-[#1A1A1A] text-white font-[900] uppercase tracking-[0.25em] text-xs px-8 py-5 rounded-xl flex items-center gap-4 hover:bg-[#39A935] transition-all shadow-lg group"
               >
                 Scarica Brochure
                 <Download size={16} className="group-hover:-translate-y-1 transition-transform" />
