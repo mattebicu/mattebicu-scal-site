@@ -10,12 +10,12 @@ export default function Footer() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 1. CHIEDIAMO ESPLICITAMENTE phoneGreen A SANITY
+        // CHIEDIAMO ESPLICITAMENTE phone2 A SANITY (Il campo appena creato)
         const data = await client.fetch(`{
           "home": *[_type == "home"][0],
           "settings": *[_type == "siteSettings"][0]{
             ...,
-            phoneGreen,
+            phone2,
             logo,
             socials
           }
@@ -52,15 +52,15 @@ export default function Footer() {
               )}
             </a>
             <p className="text-slate-500 text-sm italic font-medium">
-              Eccellenza e innovazione nella consulenza tecnica per il mondo delle materie plastiche.
+              Consulenza tecnica e sostenibilità al servizio dell’industria materie plastiche.
             </p>
           </div>
 
-          {/* MENU */}
+          {/* MENU (ALLINEATO CON L'HEADER) */}
           <div>
             <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#8B1A1A] mb-8">Menu</h4>
             <ul className="flex flex-col gap-4 text-sm font-bold uppercase text-slate-600">
-              <li><a href="/audit" className="hover:text-[#8B1A1A] transition-colors">Audit</a></li>
+              <li><a href="/servizi" className="hover:text-[#8B1A1A] transition-colors">Servizi</a></li>
               <li><a href="/chi-siamo" className="hover:text-[#8B1A1A] transition-colors">Chi Siamo</a></li>
               <li><a href="/contatti" className="hover:text-[#8B1A1A] transition-colors">Contatti</a></li>
             </ul>
@@ -79,7 +79,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* CONTATTI (MODIFICATO PER AGGIUNGERE IL SECONDO NUMERO) */}
+          {/* CONTATTI */}
           <div>
             <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#8B1A1A] mb-8">Contatti</h4>
             <ul className="flex flex-col gap-6 text-sm text-slate-600 font-bold uppercase">
@@ -93,20 +93,20 @@ export default function Footer() {
               
               {/* PRIMO NUMERO */}
               <li>
-                <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL Plastica</div>
+                <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL CONSULENZE PLASTICHE</div>
                 <a href={`tel:${settings?.phone?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#8B1A1A] transition-colors">
                   <Phone size={16} className="text-[#8B1A1A]" /> 
                   {settings?.phone || "+39 000 0000000"}
                 </a>
               </li>
 
-              {/* SECONDO NUMERO (GREENPOLYMERS) - ORA È QUI */}
-              {settings?.phoneGreen && (
+              {/* SECONDO NUMERO (Collegato dinamicamente a Sanity) */}
+              {settings?.phone2 && (
                 <li>
-                  <div className="text-[10px] text-slate-400 mb-1 tracking-widest">GreenPolymers</div>
-                  <a href={`tel:${settings?.phoneGreen?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#8B1A1A] transition-colors">
+                  <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL CONSULENZE PLASTICHE</div>
+                  <a href={`tel:${settings?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#8B1A1A] transition-colors">
                     <Phone size={16} className="text-[#8B1A1A]" /> 
-                    {settings?.phoneGreen}
+                    {settings?.phone2}
                   </a>
                 </li>
               )}

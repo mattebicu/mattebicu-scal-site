@@ -3,6 +3,9 @@ import { Target, Users, Award, Download } from 'lucide-react';
 import { client } from "../../../../sanity/lib/client";
 import { urlFor } from "../../../../sanity/lib/image";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function getChiSiamoData() {
   try {
     const query = `*[_type == "page" && slug.current == "chi-siamo"][0]{
@@ -15,7 +18,7 @@ async function getChiSiamoData() {
       mainImage,
       "brochureUrl": brochure.asset->url 
     }`;
-    return await client.fetch(query, {}, { next: { revalidate: 0 } });
+    return await client.fetch(query, { t: new Date().getTime() }, { cache: 'no-store' });
   } catch (error) {
     console.error("Errore fetch Chi Siamo:", error);
     return null;
@@ -28,7 +31,6 @@ export default async function ChiSiamoPage() {
   // Presi ESCLUSIVAMENTE da Sanity, nessun testo fisso
   const data = {
     header: {
-      tag: sanityData?.tag,
       titlePart1: sanityData?.titleLine1,
       titleItalic: sanityData?.titleHighlight,
       titlePart2: sanityData?.titleLine2
@@ -47,12 +49,15 @@ export default async function ChiSiamoPage() {
     <main className="min-h-screen bg-white pt-40 pb-20 px-6 md:px-16 text-[#1A1A1A] font-sans uppercase">
       <div className="max-w-7xl mx-auto">
         <header className="mb-24">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-8 bg-[#8B1A1A]"></div>
-            <h2 className="text-[#8B1A1A] font-bold uppercase tracking-[0.4em] text-xs italic">
-              {data.header.tag}
-            </h2>
+          
+          {/* TAG FISSO: CONSULENZA TECNICA */}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-[2px] bg-[#8B1A1A]"></div>
+            <span className="text-[#8B1A1A] text-xs font-bold tracking-[0.2em] uppercase">
+              Consulenza Tecnica
+            </span>
           </div>
+
           <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85]">
             {data.header.titlePart1} <br /> 
             <span className="text-[#8B1A1A] italic">{data.header.titleItalic}</span> <br />
