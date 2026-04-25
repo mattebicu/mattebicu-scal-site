@@ -6,7 +6,7 @@ import { structure } from './sanity/structure'
 
 export default defineConfig({
   name: 'default',
-  title: 'scal-plastica',
+  title: 'Scal GreenPolymers',
   projectId: 'xvua41ou',
   dataset: 'production',
 
