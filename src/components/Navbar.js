@@ -1,14 +1,14 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Linkedin } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Linkedin, Globe } from 'lucide-react';
 import { client } from "../../sanity/lib/client";
 
 export default function Navbar({ content: initialContent }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState('IT');
   const [content, setContent] = useState(initialContent);
 
   useEffect(() => {
-    // 1. Fetch Dati Sanity
     const fetchData = async () => {
       try {
         const data = await client.fetch(`*[_type == "home"][0]{
@@ -23,31 +23,6 @@ export default function Navbar({ content: initialContent }) {
       }
     };
     fetchData();
-
-    // 2. Iniezione Script Google Translate
-    const addGoogleTranslateScript = () => {
-      if (!document.getElementById('google-translate-script')) {
-        const script = document.createElement('script');
-        script.id = 'google-translate-script';
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.async = true;
-        document.body.appendChild(script);
-
-        window.googleTranslateElementInit = () => {
-          // Inizializza il widget per il Desktop
-          new window.google.translate.TranslateElement(
-            { pageLanguage: 'it', layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE },
-            'google_translate_element'
-          );
-          // Inizializza il widget per il Mobile
-          new window.google.translate.TranslateElement(
-            { pageLanguage: 'it', layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE },
-            'google_translate_element_mobile'
-          );
-        };
-      }
-    };
-    addGoogleTranslateScript();
   }, []);
 
   const data = content || initialContent;
@@ -89,11 +64,15 @@ export default function Navbar({ content: initialContent }) {
           <div className="h-6 w-px bg-slate-200 mx-2"></div>
 
           <div className="flex items-center gap-4">
-            
-            {/* CONTAINER GOOGLE TRANSLATE DESKTOP */}
-            <div id="google_translate_element" className="h-[30px] overflow-hidden flex items-center"></div>
+            <button 
+              className={`flex items-center gap-1 text-slate-400 ${brandRedHover} text-[10px] font-bold uppercase tracking-widest`}
+              onClick={() => setLang(lang === 'IT' ? 'EN' : 'IT')}
+            >
+              <Globe size={16} />
+              <span>{lang}</span>
+            </button>
 
-            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#0077b5] transition-colors ml-2">
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#0077b5] transition-colors">
               <Linkedin size={20} strokeWidth={1.5} />
             </a>
 
@@ -119,10 +98,9 @@ export default function Navbar({ content: initialContent }) {
           <a href="/contatti" className="text-lg font-bold uppercase text-slate-600">Contatti</a>
           <hr className="border-slate-100" />
           <div className="flex items-center justify-between">
-             
-             {/* CONTAINER GOOGLE TRANSLATE MOBILE */}
-             <div id="google_translate_element_mobile"></div>
-             
+             <button onClick={() => setLang(lang === 'IT' ? 'EN' : 'IT')} className="flex items-center gap-2 text-slate-500 font-bold text-xs">
+                <Globe size={16} /> {lang}
+             </button>
              <a href={linkedinUrl} target="_blank" className="text-slate-500">
                 <Linkedin size={20} />
               </a>
