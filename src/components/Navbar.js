@@ -38,7 +38,8 @@ export default function Navbar({ content: initialContent }) {
 
   return (
     <nav className="fixed top-0 w-full z-[100] bg-white border-b border-slate-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 h-24 md:h-28 flex justify-between items-center">
+      {/* Altezza della navbar aumentata a h-28 e h-32 */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 h-28 md:h-32 flex justify-between items-center">
         
         <div className="flex-shrink-0 flex items-center">
           <a href="/" className="hover:opacity-90 transition-opacity block">
@@ -46,7 +47,8 @@ export default function Navbar({ content: initialContent }) {
               <img 
                 src={logoUrl} 
                 alt={data?.siteName || "Logo"} 
-                className="h-20 md:h-24 w-auto object-contain block -mt-1" 
+                // Altezza del logo aumentata a h-24 e h-28
+                className="h-24 md:h-28 w-auto object-contain block -mt-1" 
               />
             )}
           </a>
@@ -90,7 +92,7 @@ export default function Navbar({ content: initialContent }) {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden absolute top-24 left-0 w-full bg-white border-b border-slate-100 shadow-xl p-6 flex flex-col gap-6">
+        <div className="lg:hidden absolute top-28 left-0 w-full bg-white border-b border-slate-100 shadow-xl p-6 flex flex-col gap-6">
           <a href="/servizi" className="text-lg font-bold uppercase text-slate-600">Servizi</a>
           <a href="/chi-siamo" className="text-lg font-bold uppercase text-slate-600">Chi Siamo</a>
           <a href="/contatti" className="text-lg font-bold uppercase text-slate-600">Contatti</a>

@@ -44,7 +44,8 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <a href="/">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-24 w-auto object-contain block" />
+                // L'altezza è aumentata a h-20 su mobile e h-28 su desktop/tablet
+                <img src={logoUrl} alt={siteName} className="h-20 md:h-28 w-auto object-contain block" />
               ) : (
                 <span className="font-black text-2xl tracking-tighter uppercase text-[#39A935]">{siteName}</span>
               )}
