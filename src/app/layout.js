@@ -1,8 +1,10 @@
 import './globals.css';
 
+export const revalidate = 0;
+
 export const metadata = {
-  title: "Scal Plastica | Circular Economy",
-  description: "Servizi di consulenza e produzione plastica",
+  title: "Scal GreenPolymers | Circular Economy",
+  description: "Soluzioni sostenibili e innovative nel mondo delle materie plastiche",
 };
 
 export default function RootLayout({ children }) {

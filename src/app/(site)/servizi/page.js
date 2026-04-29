@@ -7,11 +7,6 @@ import { urlFor } from "../../../../sanity/lib/image";
 async function getData() {
   try {
     const query = `{
-      "page": *[_type == "home"][0]{
-        "tag": hero.tag,
-        "titleLine1": hero.titleLine1,
-        "titleHighlight": hero.titleLine3
-      },
       "products": *[_type == "product"] | order(_createdAt asc) {
         name,
         description,
@@ -29,9 +24,9 @@ export default async function ServiziPage() {
   const data = await getData();
   
   const pageHeader = {
-    tag: data?.page?.tag || "Expertise Tecnica",
-    line1: data?.page?.titleLine1 || "Servizi di",
-    highlight: data?.page?.titleHighlight || "Audit"
+    tag: "Expertise Tecnica",
+    line1: "I nostri",
+    highlight: "Servizi"
   };
 
   const services = data?.products || [];
