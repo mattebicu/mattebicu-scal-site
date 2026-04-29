@@ -44,13 +44,13 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <a href="/">
               {logoUrl ? (
-                <img src={logoUrl} alt={siteName} className="h-16 w-auto object-contain block" />
+                <img src={logoUrl} alt={siteName} className="h-24 w-auto object-contain block" />
               ) : (
                 <span className="font-black text-2xl tracking-tighter uppercase text-[#39A935]">{siteName}</span>
               )}
             </a>
             <p className="text-slate-500 text-sm italic font-medium">
-              "SCAL Green Polymers, materiali plastici sostenibili per l’industria del futuro"
+              Consulenza tecnica e sostenibilità al servizio dell’industria materie plastiche.
             </p>
           </div>
 
