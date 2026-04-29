@@ -28,7 +28,7 @@ export default function Navbar({ content: initialContent }) {
   const data = content || initialContent;
   
   const externalLinkTitle = data?.externalLink?.title || "Scal Consulenze Plastiche";
-  const externalLinkUrl = data?.externalLink?.url || "#";
+  const externalLinkUrl = "https://scal-plastica.com/";
   const linkedinUrl = data?.socials?.linkedin || "#";
   const logoUrl = data?.logoUrl;
 
@@ -40,7 +40,6 @@ export default function Navbar({ content: initialContent }) {
     <nav className="fixed top-0 w-full z-[100] bg-white border-b border-slate-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 lg:px-16 h-20 md:h-24 flex justify-between items-center">
         
-        {/* AREA LOGO - Ingrandito 1.5x (h-16 e h-20) */}
         <div className="flex-shrink-0 flex items-center">
           <a href="/" className="hover:opacity-90 transition-opacity block">
             {logoUrl && (
@@ -53,7 +52,6 @@ export default function Navbar({ content: initialContent }) {
           </a>
         </div>
 
-        {/* --- MENU DESKTOP --- */}
         <div className="hidden lg:flex items-center space-x-8">
           <div className="flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-slate-500">
             <a href="/servizi" className={`${brandRedHover} transition-colors uppercase`}>Servizi</a>
@@ -86,13 +84,11 @@ export default function Navbar({ content: initialContent }) {
           </div>
         </div>
 
-        {/* MENU MOBILE */}
         <button onClick={() => setIsOpen(!isOpen)} className={`lg:hidden ${brandDark}`}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* MOBILE DROPDOWN */}
       {isOpen && (
         <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl p-6 flex flex-col gap-6">
           <a href="/servizi" className="text-lg font-bold uppercase text-slate-600">Servizi</a>
