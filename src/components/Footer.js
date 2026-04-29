@@ -51,7 +51,7 @@ export default function Footer() {
               )}
             </a>
             <p className="text-slate-500 text-sm italic font-medium">
-              Consulenza tecnica e sostenibilità al servizio dell’industria materie plastiche.
+              "SCAL Green Polymers, materiali plastici sostenibili per l’industria del futuro"
             </p>
           </div>
 
