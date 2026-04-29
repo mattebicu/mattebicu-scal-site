@@ -27,7 +27,7 @@ export default function Navbar({ content: initialContent }) {
 
   const data = content || initialContent;
   
-  const externalLinkTitle = data?.externalLink?.title || "Scal GreenPolymers";
+  const externalLinkTitle = data?.externalLink?.title || "Scal Consulenze Plastiche";
   const externalLinkUrl = data?.externalLink?.url || "#";
   const linkedinUrl = data?.socials?.linkedin || "#";
   const logoUrl = data?.logoUrl;

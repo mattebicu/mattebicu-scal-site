@@ -71,7 +71,7 @@ export default function Footer() {
             <h4 className="font-bold uppercase text-[11px] tracking-widest text-[#39A935] mb-8">Network</h4>
             <div className="flex flex-col gap-6">
               <a href={home?.site?.externalLink?.url || "#"} target="_blank" className="flex items-center gap-2 text-sm font-bold hover:text-[#39A935] transition-colors">
-                {home?.site?.externalLink?.title || "Scal GreenPolymers"} <ArrowUpRight size={16} />
+                {home?.site?.externalLink?.title || "Scal Consulenze Plastiche"} <ArrowUpRight size={16} />
               </a>
               <a href={settings?.socials?.linkedin || home?.site?.socials?.linkedin || "#"} target="_blank" className="p-3 w-fit rounded-full border border-slate-200 text-slate-400 hover:text-[#0077b5] hover:border-[#0077b5] transition-all">
                 <Linkedin size={18} />
