@@ -77,7 +77,7 @@ export default async function ContattiPage() {
               </div>
               <div>
                 <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
-                  Scal Consulenze Plastiche
+                  Scal GreenPolymers
                 </p>
                 <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone || "+39 375 6107995"}</p>
               </div>
@@ -91,7 +91,7 @@ export default async function ContattiPage() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
-                    Scal Consulenze Plastiche
+                    Scal GreenPolymers
                   </p>
                   <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone2}</p>
                 </div>

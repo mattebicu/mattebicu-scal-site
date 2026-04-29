@@ -93,7 +93,7 @@ export default function Footer() {
               
               {/* PRIMO NUMERO */}
               <li>
-                <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL CONSULENZE PLASTICHE</div>
+                <div className="text-[10px] text-slate-400 mb-1 tracking-widest">Scal GreenPolymers</div>
                 <a href={`tel:${settings?.phone?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#39A935] transition-colors">
                   <Phone size={16} className="text-[#39A935]" /> 
                   {settings?.phone || "+39 000 0000000"}
@@ -103,7 +103,7 @@ export default function Footer() {
               {/* SECONDO NUMERO (Collegato dinamicamente a Sanity) */}
               {settings?.phone2 && (
                 <li>
-                  <div className="text-[10px] text-slate-400 mb-1 tracking-widest">SCAL CONSULENZE PLASTICHE</div>
+                  <div className="text-[10px] text-slate-400 mb-1 tracking-widest">Scal GreenPolymers</div>
                   <a href={`tel:${settings?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-3 hover:text-[#39A935] transition-colors">
                     <Phone size={16} className="text-[#39A935]" /> 
                     {settings?.phone2}
