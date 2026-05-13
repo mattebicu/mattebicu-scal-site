@@ -1,3 +1,5 @@
+// sanity/schemaTypes/siteSettings.ts
+
 export const siteSettings = { 
   name: 'siteSettings',
   title: 'Info Contatto e Legali',
@@ -12,6 +14,16 @@ export const siteSettings = {
     {
       name: 'phone',
       title: 'Ufficio Tecnico (Telefono)',
+      type: 'string',
+    },
+    {
+      name: 'phone2',
+      title: 'Telefono Secondario (Opzionale)',
+      type: 'string',
+    },
+    {
+      name: 'phone3',
+      title: 'Telefono Terziario (Opzionale)',
       type: 'string',
     },
     {

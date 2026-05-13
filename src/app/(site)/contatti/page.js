@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mail, Phone, Send, MapPin } from 'lucide-react';
-// Percorso corretto: 4 livelli indietro
 import { client } from "../../../../sanity/lib/client";
 
 export const dynamic = 'force-dynamic';
@@ -14,11 +13,13 @@ async function getPageData() {
           email,
           phone,
           phone2,
+          phone3,
           address,
           "siteName": name
         },
         "page": *[_type == "page" && slug.current == "contatti"][0]{
-          contactTitle
+          contactTitle,
+          poeticPhrase
         }
       }`, 
       { t: new Date().getTime() }, 
@@ -36,6 +37,7 @@ export default async function ContattiPage() {
   const info = data?.info;
   
   const rawTitle = data?.page?.contactTitle || "Chiedici di più sui nostri servizi";
+  const poeticPhrase = data?.page?.poeticPhrase || "Ogni granulo di plastica riciclata racconta una storia di rinascita e di circolarità";
   
   const words = rawTitle.split(' ');
   const mainText = words.slice(0, -1).join(' ');
@@ -54,10 +56,15 @@ export default async function ContattiPage() {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-[80px] font-[900] tracking-tighter uppercase leading-[0.85] mb-20">
+          <h1 className="text-6xl md:text-[80px] font-[900] tracking-tighter uppercase leading-[0.85] mb-8">
             {mainText} <br />
             <span className="text-[#39A935] italic">{lastWord}</span>
           </h1>
+
+          {/* FRASE POETICA */}
+          <p className="text-xl md:text-2xl text-slate-600 italic mb-16 border-l-4 border-[#39A935] pl-6 py-1 leading-relaxed">
+            "{poeticPhrase}"
+          </p>
           
           <div className="space-y-10">
             <a href={`mailto:${info?.email}`} className="flex items-center gap-6 group">
@@ -83,7 +90,7 @@ export default async function ContattiPage() {
               </div>
             </a>
 
-            {/* SECONDO TELEFONO (Caricato da Sanity) */}
+            {/* SECONDO TELEFONO */}
             {info?.phone2 && (
               <a href={`tel:${info?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
                 <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
@@ -91,9 +98,24 @@ export default async function ContattiPage() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
-                    Scal GreenPolymers
+                    Scal GreenPolymers (2)
                   </p>
                   <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone2}</p>
+                </div>
+              </a>
+            )}
+
+            {/* TERZO TELEFONO (NUOVO) */}
+            {info?.phone3 && (
+              <a href={`tel:${info?.phone3?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
+                <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
+                    Scal GreenPolymers (3)
+                  </p>
+                  <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone3}</p>
                 </div>
               </a>
             )}

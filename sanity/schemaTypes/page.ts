@@ -1,3 +1,5 @@
+// sanity/schemaTypes/page.ts
+
 import { defineType, defineField } from 'sanity'
 
 export const page = defineType({
@@ -74,6 +76,12 @@ export const page = defineType({
       title: 'Titolo Pagina Contatti',
       type: 'string',
       description: 'Il titolo che appare a sinistra del form (solo per la pagina contatti)'
+    }),
+    defineField({
+      name: 'poeticPhrase',
+      title: 'Frase Poetica',
+      type: 'text',
+      description: 'Frase in evidenza nella pagina contatti (es: Ogni granulo di plastica...)'
     })
   ]
 })
