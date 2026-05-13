@@ -1,5 +1,3 @@
-// sanity/schemaTypes/siteSettings.ts
-
 export const siteSettings = { 
   name: 'siteSettings',
   title: 'Info Contatto e Legali',
@@ -13,17 +11,12 @@ export const siteSettings = {
     },
     {
       name: 'phone',
-      title: 'Ufficio Tecnico (Telefono)',
+      title: 'Ufficio Tecnico (Telefono 1)',
       type: 'string',
     },
     {
       name: 'phone2',
-      title: 'Telefono Secondario (Opzionale)',
-      type: 'string',
-    },
-    {
-      name: 'phone3',
-      title: 'Telefono Terziario (Opzionale)',
+      title: 'Ufficio Tecnico (Telefono 2)',
       type: 'string',
     },
     {
@@ -35,13 +28,11 @@ export const siteSettings = {
       name: 'vatNumber',
       title: 'Partita IVA',
       type: 'string',
-      description: 'Inserire la partita IVA (es. IT01234567890)'
     },
     {
       name: 'legalInfo',
-      title: 'Note Legali (REA, Capitale Sociale, ecc.)',
+      title: 'Note Legali',
       type: 'text',
-      description: 'Dati obbligatori: Numero REA, Capitale Sociale versato, Ufficio Registro Imprese'
     },
   ],
 }

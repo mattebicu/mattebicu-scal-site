@@ -13,7 +13,6 @@ async function getPageData() {
           email,
           phone,
           phone2,
-          phone3,
           address,
           "siteName": name
         },
@@ -22,7 +21,7 @@ async function getPageData() {
           poeticPhrase
         }
       }`, 
-      { t: new Date().getTime() }, 
+      {}, 
       { cache: 'no-store' }
     );
     return data;
@@ -36,6 +35,7 @@ export default async function ContattiPage() {
   const data = await getPageData();
   const info = data?.info;
   
+  // Prende il titolo da Sanity, se vuoto usa il fallback
   const rawTitle = data?.page?.contactTitle || "Chiedici di più sui nostri servizi";
   const poeticPhrase = data?.page?.poeticPhrase || "Ogni granulo di plastica riciclata racconta una storia di rinascita e di circolarità";
   
@@ -48,7 +48,6 @@ export default async function ContattiPage() {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
         <div className="flex flex-col">
           
-          {/* TAG FISSO: CONSULENZA TECNICA */}
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[2px] bg-[#39A935]"></div>
             <span className="text-[#39A935] text-xs font-bold tracking-[0.2em] uppercase">
@@ -61,12 +60,12 @@ export default async function ContattiPage() {
             <span className="text-[#39A935] italic">{lastWord}</span>
           </h1>
 
-          {/* FRASE POETICA */}
           <p className="text-xl md:text-2xl text-slate-600 italic mb-16 border-l-4 border-[#39A935] pl-6 py-1 leading-relaxed">
             "{poeticPhrase}"
           </p>
           
           <div className="space-y-10">
+            {/* EMAIL */}
             <a href={`mailto:${info?.email}`} className="flex items-center gap-6 group">
               <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
                 <Mail size={24} />
@@ -77,49 +76,31 @@ export default async function ContattiPage() {
               </div>
             </a>
 
-            {/* PRIMO TELEFONO */}
+            {/* UFFICIO TECNICO 1 */}
             <a href={`tel:${info?.phone?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
               <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
                 <Phone size={24} />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
-                  Scal GreenPolymers
-                </p>
+                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">Ufficio Tecnico</p>
                 <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone || "+39 375 6107995"}</p>
               </div>
             </a>
 
-            {/* SECONDO TELEFONO */}
+            {/* UFFICIO TECNICO 2 */}
             {info?.phone2 && (
               <a href={`tel:${info?.phone2?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
                 <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
                   <Phone size={24} />
                 </div>
                 <div>
-                  <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
-                    Scal GreenPolymers (2)
-                  </p>
+                  <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">Ufficio Tecnico</p>
                   <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone2}</p>
                 </div>
               </a>
             )}
 
-            {/* TERZO TELEFONO (NUOVO) */}
-            {info?.phone3 && (
-              <a href={`tel:${info?.phone3?.replace(/\s+/g, '')}`} className="flex items-center gap-6 group">
-                <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm group-hover:bg-[#39A935] group-hover:text-white transition-all">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">
-                    Scal GreenPolymers (3)
-                  </p>
-                  <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone3}</p>
-                </div>
-              </a>
-            )}
-
+            {/* INDIRIZZO */}
             <div className="flex items-center gap-6">
               <div className="w-14 h-14 bg-white border border-[#39A935]/20 rounded-2xl flex items-center justify-center text-[#39A935] shadow-sm">
                 <MapPin size={24} />
