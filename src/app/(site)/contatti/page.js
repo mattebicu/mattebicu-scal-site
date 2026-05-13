@@ -36,7 +36,7 @@ export default async function ContattiPage() {
   const info = data?.info;
   
   // Prende il titolo da Sanity, se vuoto usa il fallback
-  const rawTitle = data?.page?.contactTitle || "Chiedici di più sui nostri servizi";
+  const rawTitle = data?.page?.contactTitle || "Contattaci";
   const poeticPhrase = data?.page?.poeticPhrase || "Ogni granulo di plastica riciclata racconta una storia di rinascita e di circolarità";
   
   const words = rawTitle.split(' ');
