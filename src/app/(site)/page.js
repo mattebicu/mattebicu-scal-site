@@ -1,3 +1,5 @@
+// src/app/(site)/page.js
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { client } from "@/sanity/lib/client";
@@ -5,6 +7,10 @@ import HeroSlideshow from "@/components/HeroSlideshow";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
+
+export const metadata = {
+  title: "SCAL – Materie Plastiche",
+};
 
 async function getData() {
   const query = `{
