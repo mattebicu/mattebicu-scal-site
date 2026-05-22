@@ -24,7 +24,7 @@ export default async function ServiziPage() {
   const data = await getData();
   
   const pageHeader = {
-    tag: "Expertise Tecnica",
+    tag: "materie plastiche",
     line1: "I nostri",
     highlight: "Servizi"
   };

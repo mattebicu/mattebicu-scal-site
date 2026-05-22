@@ -50,11 +50,11 @@ export default async function ChiSiamoPage() {
       <div className="max-w-7xl mx-auto">
         <header className="mb-24">
           
-          {/* TAG FISSO: CONSULENZA TECNICA */}
+          {/* TAG FISSO: materie plastiche */}
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-[2px] bg-[#39A935]"></div>
             <span className="text-[#39A935] text-xs font-bold tracking-[0.2em] uppercase">
-              Consulenza Tecnica
+              materie plastiche
             </span>
           </div>
 
