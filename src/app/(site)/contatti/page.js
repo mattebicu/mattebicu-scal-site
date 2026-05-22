@@ -106,7 +106,7 @@ export default async function ContattiPage() {
                 <MapPin size={24} />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">Sede Legale</p>
+                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">Sede</p>
                 <p className="font-bold text-xl">{info?.address || "Via Via - Torino - Italia"}</p>
               </div>
             </div>
