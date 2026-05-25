@@ -44,7 +44,6 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <a href="/">
               {logoUrl ? (
-                // L'altezza è aumentata a h-20 su mobile e h-28 su desktop/tablet
                 <img src={logoUrl} alt={siteName} className="h-20 md:h-28 w-auto object-contain block" />
               ) : (
                 <span className="font-black text-2xl tracking-tighter uppercase text-[#39A935]">{siteName}</span>
@@ -119,8 +118,8 @@ export default function Footer() {
               © 2026 {siteName} {settings?.vatNumber ? `- P.IVA ${settings.vatNumber}` : ''}
             </p>
             <div className="flex gap-6 text-[10px] uppercase font-bold tracking-widest text-slate-400">
-              <a href="/privacy" className="hover:text-[#39A935]">Privacy Policy</a>
-              <a href="/cookie" className="hover:text-[#39A935]">Cookie Policy</a>
+              <a href="/privacy-policy" className="hover:text-[#39A935]">Privacy Policy</a>
+              <a href="/cookie-policy" className="hover:text-[#39A935]">Cookie Policy</a>
             </div>
           </div>
           {settings?.legalInfo && (
