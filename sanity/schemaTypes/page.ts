@@ -29,7 +29,21 @@ export const page = defineType({
       type: 'text',
       description: 'La frase "Ogni granulo di plastica..."'
     }),
-    // ... mantieni gli altri campi (tag, titleLine1, ecc.) se ti servono per le altre pagine
+    defineField({
+      name: 'titleLine1',
+      title: 'Titolo Riga 1',
+      type: 'string',
+    }),
+    defineField({
+      name: 'titleLine2',
+      title: 'Titolo Riga 2',
+      type: 'string',
+    }),
+    defineField({
+      name: 'titleHighlight',
+      title: 'Titolo Evidenziato',
+      type: 'string',
+    }),
     defineField({
       name: 'tag',
       title: 'Tag Superiore',
@@ -44,6 +58,15 @@ export const page = defineType({
       name: 'mainImage',
       title: 'Immagine Principale',
       type: 'image',
+    }),
+    defineField({
+      name: 'brochure',
+      title: 'Brochure PDF',
+      type: 'file',
+      description: 'Carica qui il file della brochure da far scaricare',
+      options: {
+        accept: '.pdf'
+      }
     })
   ]
 })

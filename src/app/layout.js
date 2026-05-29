@@ -5,7 +5,7 @@ import './globals.css';
 export const revalidate = 0;
 
 export const metadata = {
-  title: "SCAL – Materie Plastiche",
+  title: "Scal Plastica | Consulenza",
   description: "Soluzioni sostenibili e innovative nel mondo delle materie plastiche",
 };
 
