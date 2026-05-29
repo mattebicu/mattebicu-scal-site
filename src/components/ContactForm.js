@@ -10,17 +10,20 @@ export default function ContactForm() {
     setStatus('sending');
     const formData = new FormData(e.target);
     
-    // 👇 INCOLLA QUI LA TUA ACCESS KEY DI WEB3FORMS 👇
-    formData.append("access_key", "LA_TUA_ACCESS_KEY_QUI");
+    formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
+        headers: {
+          "Accept": "application/json" 
+        },
         body: formData
       });
+      
       if (res.ok) {
         setStatus('success');
-        e.target.reset(); // Svuota il form
+        e.target.reset(); 
       } else {
         setStatus('error');
       }
@@ -38,6 +41,8 @@ export default function ContactForm() {
       <input type="email" name="email" required placeholder="EMAIL" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
       <textarea rows="5" name="message" required placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
       
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
       <button 
         type="submit" 
         disabled={status === 'sending'}
