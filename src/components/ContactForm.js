@@ -1,50 +1,42 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Send } from 'lucide-react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState('');
+  const formRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
     
-    const formData = new FormData(e.target);
+    const formData = new FormData(formRef.current);
     formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json" 
-        },
-        body: json
+        body: formData
       });
       
-      const result = await res.json();
+      const data = await res.json();
       
-      if (result.success) {
+      if (data.success) {
         setStatus('success');
-        e.target.reset(); 
-        
-        // Opzionale: fa scomparire il messaggio di successo dopo 5 secondi
-        setTimeout(() => {
-          setStatus('');
-        }, 5000);
+        formRef.current.reset(); 
+        setTimeout(() => setStatus(''), 5000);
       } else {
+        console.error("Errore Web3Forms:", data);
         setStatus('error');
       }
     } catch (err) {
+      console.error("Errore Fetch:", err);
       setStatus('error');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
       <div className="grid md:grid-cols-2 gap-5">
         <input type="text" name="name" required placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
         <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
