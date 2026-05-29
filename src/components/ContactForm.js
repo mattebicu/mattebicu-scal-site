@@ -9,19 +9,26 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("👉 1. Il pulsante è stato premuto, funzione avviata!");
+    
     setStatus('sending');
     setErrorMessage('');
     
     const formData = new FormData(formRef.current);
     formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
 
+    // Mostriamo in console i dati esatti che stiamo provando a inviare
+    console.log("👉 2. Dati pronti per l'invio:", Object.fromEntries(formData));
+
     try {
+      console.log("👉 3. Inizio chiamata a Web3Forms...");
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData
       });
       
       const data = await res.json();
+      console.log("👉 4. Risposta dal server:", data);
       
       if (data.success) {
         setStatus('success');
@@ -29,12 +36,11 @@ export default function ContactForm() {
         setTimeout(() => setStatus(''), 5000);
       } else {
         setStatus('error');
-        // Salviamo il messaggio di errore esatto che ci restituisce Web3Forms
         setErrorMessage(data.message || "Errore sconosciuto dal server");
       }
     } catch (err) {
+      console.error("❌ ERRORE CRITICO FETCH:", err);
       setStatus('error');
-      // Salviamo l'errore se la chiamata fallisce del tutto (es. bloccata da AdBlocker)
       setErrorMessage("Errore di rete: " + err.message);
     }
   };
