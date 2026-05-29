@@ -4,11 +4,13 @@ import { Send } from 'lucide-react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const formRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+    setErrorMessage('');
     
     const formData = new FormData(formRef.current);
     formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
@@ -26,12 +28,14 @@ export default function ContactForm() {
         formRef.current.reset(); 
         setTimeout(() => setStatus(''), 5000);
       } else {
-        console.error("Errore Web3Forms:", data);
         setStatus('error');
+        // Salviamo il messaggio di errore esatto che ci restituisce Web3Forms
+        setErrorMessage(data.message || "Errore sconosciuto dal server");
       }
     } catch (err) {
-      console.error("Errore Fetch:", err);
       setStatus('error');
+      // Salviamo l'errore se la chiamata fallisce del tutto (es. bloccata da AdBlocker)
+      setErrorMessage("Errore di rete: " + err.message);
     }
   };
 
@@ -56,7 +60,12 @@ export default function ContactForm() {
       </button>
 
       {status === 'success' && <p className="text-[#39A935] font-bold text-center mt-4">Messaggio inviato con successo! Ti ricontatteremo a breve.</p>}
-      {status === 'error' && <p className="text-red-500 font-bold text-center mt-4">C'è stato un errore. Riprova più tardi.</p>}
+      {status === 'error' && (
+        <div className="text-red-500 font-bold text-center mt-4 flex flex-col items-center">
+          <p>C'è stato un errore.</p>
+          <p className="text-xs bg-red-100 p-2 rounded mt-2 text-red-800 break-all">{errorMessage}</p>
+        </div>
+      )}
     </form>
   );
 }
