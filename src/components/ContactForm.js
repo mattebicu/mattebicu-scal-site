@@ -1,6 +1,5 @@
 "use client";
 import { useState, useRef } from 'react';
-import { Send } from 'lucide-react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState('');
@@ -9,6 +8,7 @@ export default function ContactForm() {
 
   const handleButtonClick = async (e) => {
     e.preventDefault();
+    alert("React funziona! Ora proviamo l'invio...");
     setStatus('sending');
     setErrorMessage('');
     
@@ -52,10 +52,9 @@ export default function ContactForm() {
         type="button" 
         onClick={handleButtonClick}
         disabled={status === 'sending'}
-        className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group cursor-pointer"
+        className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg cursor-pointer"
       >
         {status === 'sending' ? 'INVIO IN CORSO...' : 'CONTATTACI'}
-        <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
       </button>
 
       {status === 'success' && <p className="text-[#39A935] font-bold text-center mt-4">Messaggio inviato con successo! Ti ricontatteremo a breve.</p>}
