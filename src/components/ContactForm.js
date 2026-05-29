@@ -7,10 +7,8 @@ export default function ContactForm() {
   const [errorMessage, setErrorMessage] = useState('');
   const formRef = useRef(null);
 
-  const handleSubmit = async (e) => {
+  const handleButtonClick = async (e) => {
     e.preventDefault();
-    alert("REACT E' ATTIVO! Il form sta partendo.");
-    
     setStatus('sending');
     setErrorMessage('');
     
@@ -31,31 +29,29 @@ export default function ContactForm() {
         setTimeout(() => setStatus(''), 5000);
       } else {
         setStatus('error');
-        setErrorMessage(data.message || "Errore sconosciuto dal server");
+        setErrorMessage(data.message || "Errore dal server Web3Forms");
       }
     } catch (err) {
       setStatus('error');
-      setErrorMessage("Errore di rete: " + err.message);
+      setErrorMessage("Errore di rete: controlla la connessione");
     }
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className="space-y-5 relative z-50">
+    <form ref={formRef} className="space-y-5 relative z-[9999] pointer-events-auto">
       <div className="grid md:grid-cols-2 gap-5">
-        {/* Ho rimosso "required" per assicurarmi che il browser non stia bloccando l'invio silenziosamente */}
-        <input type="text" name="name" placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
-        <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
+        <input type="text" name="name" required placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest relative z-[9999] pointer-events-auto" />
+        <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest relative z-[9999] pointer-events-auto" />
       </div>
-      <input type="email" name="email" placeholder="EMAIL" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
-      <textarea rows="5" name="message" placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
+      <input type="email" name="email" required placeholder="EMAIL" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest relative z-[9999] pointer-events-auto" />
+      <textarea rows="5" name="message" required placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest resize-none relative z-[9999] pointer-events-auto"></textarea>
       
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
-      {/* Aggiunto relative z-50 per evitare che div trasparenti blocchino il click */}
       <button 
-        type="submit" 
+        onClick={handleButtonClick}
         disabled={status === 'sending'}
-        className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group relative z-50 cursor-pointer"
+        className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group relative z-[9999] pointer-events-auto cursor-pointer"
       >
         {status === 'sending' ? 'INVIO IN CORSO...' : 'CONTATTACI'}
         <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
