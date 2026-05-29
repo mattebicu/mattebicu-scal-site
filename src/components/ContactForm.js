@@ -38,20 +38,21 @@ export default function ContactForm() {
   };
 
   return (
-    <form ref={formRef} className="space-y-5 relative z-[9999] pointer-events-auto">
+    <form ref={formRef} noValidate className="space-y-5">
       <div className="grid md:grid-cols-2 gap-5">
-        <input type="text" name="name" required placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest relative z-[9999] pointer-events-auto" />
-        <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest relative z-[9999] pointer-events-auto" />
+        <input type="text" name="name" placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
+        <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
       </div>
-      <input type="email" name="email" required placeholder="EMAIL" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest relative z-[9999] pointer-events-auto" />
-      <textarea rows="5" name="message" required placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest resize-none relative z-[9999] pointer-events-auto"></textarea>
+      <input type="email" name="email" placeholder="EMAIL" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
+      <textarea rows="5" name="message" placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
       
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
       <button 
+        type="button" 
         onClick={handleButtonClick}
         disabled={status === 'sending'}
-        className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group relative z-[9999] pointer-events-auto cursor-pointer"
+        className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg group cursor-pointer"
       >
         {status === 'sending' ? 'INVIO IN CORSO...' : 'CONTATTACI'}
         <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
