@@ -8,22 +8,33 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
-    const formData = new FormData(e.target);
     
+    const formData = new FormData(e.target);
     formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           "Accept": "application/json" 
         },
-        body: formData
+        body: json
       });
       
-      if (res.ok) {
+      const result = await res.json();
+      
+      if (result.success) {
         setStatus('success');
         e.target.reset(); 
+        
+        // Opzionale: fa scomparire il messaggio di successo dopo 5 secondi
+        setTimeout(() => {
+          setStatus('');
+        }, 5000);
       } else {
         setStatus('error');
       }
