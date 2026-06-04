@@ -82,7 +82,7 @@ export default async function ContattiPage() {
                 <Phone size={24} />
               </div>
               <div>
-                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">USCAL GREEN POLYMERS</p>
+                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">SCAL GREEN POLYMERS</p>
                 <p className="font-bold text-xl group-hover:text-[#39A935] transition-colors">{info?.phone || "+39 375 6107995"}</p>
               </div>
             </a>
