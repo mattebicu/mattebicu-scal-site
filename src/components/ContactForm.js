@@ -8,11 +8,25 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('sending');
-    setErrorMessage('');
     
     const form = e.target;
     const formData = new FormData(form);
+
+    // Controllo campi obbligatori
+    const name = formData.get('name');
+    const company = formData.get('company');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    if (!name || !company || !email || !message) {
+      setStatus('error');
+      setErrorMessage('Attenzione: tutti i campi (Nome, Azienda, Email, Messaggio) sono obbligatori.');
+      return;
+    }
+
+    setStatus('sending');
+    setErrorMessage('');
+    
     formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
 
     try {
@@ -40,11 +54,11 @@ export default function ContactForm() {
   return (
     <form noValidate className="space-y-5" onSubmit={handleSubmit}>
       <div className="grid md:grid-cols-2 gap-5">
-        <input type="text" name="name" placeholder="NOME" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
-        <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
+        <input type="text" name="name" required placeholder="NOME" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
+        <input type="text" name="company" required placeholder="AZIENDA" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
       </div>
-      <input type="email" name="email" placeholder="EMAIL" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
-      <textarea rows="5" name="message" placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
+      <input type="email" name="email" required placeholder="EMAIL" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
+      <textarea rows="5" name="message" required placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
       
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
