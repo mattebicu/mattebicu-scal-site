@@ -1,6 +1,7 @@
 import React from 'react';
-import { Mail, Phone, Send, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { client } from "../../../../sanity/lib/client";
+import ContactForm from "@/components/ContactForm"; // <-- IMPORTA IL COMPONENTE QUI (aggiusta il percorso se serve)
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -35,7 +36,6 @@ export default async function ContattiPage() {
   const data = await getPageData();
   const info = data?.info;
   
-  // Prende il titolo da Sanity, se vuoto usa il fallback
   const rawTitle = data?.page?.contactTitle || "Contattaci";
   const poeticPhrase = data?.page?.poeticPhrase || "Ogni granulo di plastica riciclata racconta una storia di rinascita e di circolarità";
   
@@ -114,19 +114,8 @@ export default async function ContattiPage() {
         </div>
 
         <div className="lg:mt-32 bg-slate-50/50 p-8 md:p-14 rounded-[60px] border border-slate-100 shadow-sm">
-          <form className="space-y-5">
-            <div className="grid md:grid-cols-2 gap-5">
-              <input type="text" placeholder="NOME" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
-              <input type="text" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
-            </div>
-            <input type="email" placeholder="EMAIL" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest" />
-            <textarea rows="5" placeholder="MESSAGGIO" className="w-full bg-white border-2 border-[#39A935]/20 rounded-2xl px-5 py-4 focus:border-[#39A935] outline-none transition-all text-xs font-bold tracking-widest resize-none"></textarea>
-            
-            <button type="button" className="w-full bg-[#1A1A1A] text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#39A935] transition-all shadow-lg group">
-              CONTATTACI 
-              <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </button>
-          </form>
+          {/* QUI ORA RICHIAMIAMO IL COMPONENTE FUNZIONANTE */}
+          <ContactForm />
         </div>
       </div>
     </main>
