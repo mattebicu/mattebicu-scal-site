@@ -38,7 +38,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form ref={formRef} noValidate className="space-y-5">
+    <form ref={formRef} noValidate className="space-y-5" onSubmit={handleButtonClick}>
       <div className="grid md:grid-cols-2 gap-5">
         <input type="text" name="name" placeholder="NOME" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
         <input type="text" name="company" placeholder="AZIENDA" className="w-full bg-white border-2 border-[#8B1A1A]/20 rounded-2xl px-5 py-4 focus:border-[#8B1A1A] outline-none transition-all text-xs font-bold tracking-widest" />
@@ -49,8 +49,7 @@ export default function ContactForm() {
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
       <button 
-        type="button" 
-        onClick={handleButtonClick}
+        type="submit" 
         disabled={status === 'sending'}
         className="w-full bg-[#1A1A1A] disabled:bg-slate-400 text-white font-[900] uppercase tracking-[0.25em] py-6 rounded-2xl flex items-center justify-center gap-4 hover:bg-[#8B1A1A] transition-all shadow-lg cursor-pointer"
       >
