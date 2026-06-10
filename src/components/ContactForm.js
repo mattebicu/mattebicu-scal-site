@@ -27,7 +27,8 @@ export default function ContactForm() {
     setStatus('sending');
     setErrorMessage('');
     
-    formData.append("access_key", "a6e0176d-a205-49e9-8e29-d6d889920d5c");
+    // Chiave aggiornata per il secondo form
+    formData.append("access_key", "fe957404-0568-4666-86c2-3e33a767874c");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
