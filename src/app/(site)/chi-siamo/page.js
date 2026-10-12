@@ -58,7 +58,7 @@ export default async function ChiSiamoPage() {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85]">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.85] break-words">
             {data.header.titlePart1} <br /> 
             <span className="text-[#39A935] italic">{data.header.titleItalic}</span> <br />
             {data.header.titlePart2}
